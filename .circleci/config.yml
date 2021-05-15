@@ -24,7 +24,7 @@ jobs:
            command: |
              ssh ubuntu@ec2-3-80-24-95.compute-1.amazonaws.com -oStrictHostKeyChecking=no '
              cd 4IT572_ansible/ansible/
-             ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ec2_deploy.yml --user ubuntu --key-file devops.pem --vault-password-file password -e 'ansible_python_interpreter=/usr/local/bin/python''
+             ANSIBLE_HOST_KEY_CHECKING=False ANSIBLE_PYTHON_INTERPRETER=/usr/local/bin/python3 ansible-playbook ec2_deploy.yml --user ubuntu --key-file devops.pem --vault-password-file password'
 
 workflows:
   version: 2.1
