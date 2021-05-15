@@ -22,10 +22,9 @@ jobs:
            at: .
         - run:
            command: |
-             sudo apt install python
              ssh ubuntu@ec2-3-80-24-95.compute-1.amazonaws.com -oStrictHostKeyChecking=no '
              cd 4IT572_ansible/ansible/
-             ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ec2_deploy.yml --user ubuntu --key-file devops.pem --vault-password-file password'
+             ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ec2_deploy.yml --user ubuntu --key-file devops.pem --vault-password-file password -e 'ansible_python_interpreter=/usr/local/bin/python''
 
 workflows:
   version: 2.1
